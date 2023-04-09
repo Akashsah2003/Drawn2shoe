@@ -9,21 +9,24 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 </head>
 <body>
     <nav>
         <div class="nav">
             <div class="nav-left">
                 <ul>
-                    <li><a href="#"><img src="instagram.svg" alt=""></a></li>
-                    <li><a href="#"><img src="facebook.svg" alt=""></a></li>
+                    <li><a href="https://instagram.com/drawn2shoe?igshid=YjNmNGQ3MDY="><img src="instagram.svg" alt=""></a></li>
+                    <li><a href="https://www.facebook.com/profile.php?id=100091869992851"><img src="facebook.svg" alt=""></a></li>
                 </ul>
             </div>
             <div class="nav-mid">
-                <p class="txt">DRAWN2SHOE</p>
+                <a href="/"><p class="txt">DRAWN2SHOE</p></a>
             </div>
             <div class="nav-right">
-                <p class="txt">
+                <p class="txt" id="login">
                     Login
                 </p>
             </div>
@@ -31,34 +34,38 @@
     </nav>
     <div class="vid">
         <video autoplay muted loop id="myVideo">
-            <source id="video-source" src="broll.mp4" type="video/mp4">
+            <source id="video-source" src="crocls.mp4" type="video/mp4">
         </video>
     </div>
     <div class="vid-txt">
-        STEP INTO YOUR<br><b>OWN STYLE</b> 
+        <b>CROCS</b><br> where comfort meets Style!
     </div>
-    <div class="categ">
-        <div class="cat1">
-            <a href=""><img src="cat1.jpg" alt=""></a>
+    <div class="product">
+        <div class="prodimg">
+            <img src="./crocs.png" alt="">
         </div>
-        <div class="cat2">
-            <a href=""><img src="cat3.jpg" alt=""></a>
+        <div class="pdesc">
+            <div class="pname">
+               <b>CUSTOM CROCS</b> 
+            </div>
+            <div class="pddesc">
+                <p>
+                    Introducing our line of doodled crocks - the perfect footwear for anyone who wants to add a touch of creativity and fun to their outfit. These personalized clogs are designed to showcase your unique sense of style, with colorful and eye-catching designs that are sure to turn heads.
+                </p>
+                <div class="file">
+                    <label for="description">Describe your Design!</label>
+                    <textarea id="description" name="entry.1234567890"></textarea>
+                    <br>
+                    <input id="file-upload" type="file" name="entry.0987654321">
+                </div>
+                <div class="pay">
+                    <div class="price">
+                        &#8377 149
+                    </div>
+                    <button id="rzp-button">Pay Now</button>
+                </div>
+            </div>
         </div>
-        <div class="cat3">
-            <a href=""><img src="cat2.jpg" alt=""></a>
-        </div>
-    </div>
-    <div class="form">
-    <h1>Google Forms Example</h1>
-    <form id="myform">
-        <label for="description">Description:</label>
-        <textarea id="description" name="entry.1234567890"></textarea>
-        <br>
-        <label for="file-upload">File upload:</label>
-        <input id="file-upload" type="file" name="entry.0987654321">
-        <br>
-        <button type="submit">Submit</button>
-    </form>
     </div>
     <div class="contact">
         <div class="lleft">
@@ -81,11 +88,23 @@
                     No.5, pitome, Cyber City, 10th Floor, Tower B & C, DLF Building, DLF Phase 3, <br>Gurugram, Haryana 122002
                 </p>
             </div>
+            <div class="phone">
+                <div class="pleft">
+                    <img src="./phone.jpg" alt="">
+                </div>
+                <div class="pright">
+                    +91-9079915245
+                </div>
+            </div>
+            <div class="email">
+                <a href="mailto:drawn2shoe@gmail.com">drawn2shoe@gmail.com</a>
+            </div>
         </div>
         <div class="mid">
             <img src="shoes.png" alt="">
         </div>
     </div>
 </body>
-<script src="./index.js"></script>
+<script src="./crocs.js"></script>
+<script src="payment.js"></script>
 </html>

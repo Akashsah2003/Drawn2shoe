@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body>
+    <nav>
+        <div class="nav">
+            <div class="nav-left">
+                <ul>
+                    <li><a href="https://instagram.com/drawn2shoe?igshid=YjNmNGQ3MDY="><img src="instagram.svg" alt=""></a></li>
+                    <li><a href="https://www.facebook.com/profile.php?id=100091869992851"><img src="facebook.svg" alt=""></a></li>
+                </ul>
+            </div>
+            <div class="nav-mid">
+                <p class="txt">DRAWN2SHOE</p>
+            </div>
+            <div class="nav-right">
+                <p class="txt" id="login">
+                    Login
+                </p>
+            </div>
+        </div>
+    </nav>
+    <div class="vid">
+        <video autoplay muted loop id="myVideo">
+            <source id="video-source" src="cdg.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="vid-txt">
+        <b>Converse CdG</b><br>Exprimez votre singularité
+    </div>
+    <div class="product">
+        <div class="prodimg">
+            <img src="./cdg.png" alt="">
+        </div>
+        <div class="pdesc">
+            <div class="pname">
+               <b>CUSTOM CONVERSE</b> 
+            </div>
+            <div class="pddesc">
+                <p>
+                    Our doodled Converse are more than just a stylish accessory - they are a reflection of your personality and creativity. The blank canvas on the upper of the shoe allows you to create a one-of-a-kind design that is truly unique to you. Whether you're a fan of bright colors, bold patterns, or intricate illustrations, our doodled Converse give you the freedom to express yourself in a way that is both fun and fashionable.
+                </p>
+                <div class="file">
+                    <label for="description">Describe your Design!</label>
+                    <textarea id="description" name="entry.1234567890"></textarea>
+                    <br>
+                    <input id="file-upload" type="file" name="entry.0987654321">
+                </div>
+                <div class="pay">
+                    <div class="price">
+                        &#8377 249
+                    </div>
+                    <button id="rzp-button">Pay Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="contact">
+        <div class="lleft">
+            <div class="left">
+                <p class="title">
+                    Contact
+                </p>
+                <p class="head">
+                    DRAWN2SHOE <span class="loc"> Mumbai</span> 
+                </p>
+                <p class="address">
+                    341, Bhavishya Nidhi Bhawan, Bandra (East),<br>Mumbai – 400 051.
+                </p>
+            </div>
+            <div class="right">
+                <p class="head">
+                    DRAWN2SHOE <span class="loc"> Delhi</span> 
+                </p>
+                <p class="address">
+                    No.5, pitome, Cyber City, 10th Floor, Tower B & C, DLF Building, DLF Phase 3, <br>Gurugram, Haryana 122002
+                </p>
+            </div>
+            <div class="phone">
+                <div class="pleft">
+                    <img src="./phone.jpg" alt="">
+                </div>
+                <div class="pright">
+                    +91-9079915245
+                </div>
+            </div>
+            <div class="email">
+                <a href="mailto:drawn2shoe@gmail.com">drawn2shoe@gmail.com</a>
+            </div>
+        </div>
+        <div class="mid">
+            <img src="shoes.png" alt="">
+        </div>
+    </div>
+</body>
+<script src="./crocs.js"></script>
+<script src="./payment2.js"></script>
+</html>

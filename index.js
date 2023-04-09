@@ -1,68 +1,50 @@
-// // Replace "FORM_ID" with the ID of your Google Form
-// const formId = "1FAIpQLSfBk0bfsyJelyYYrdFQDwvFLI_ywnavrb8jVy-yNhJGwjusUw";
+var client;
+var access_token;
 
-// // Get the HTML form element
-// var htmlForm = document.getElementById("myform");
+// function initClient() {
+    
+    client = google.accounts.oauth2.initTokenClient({
+        client_id: '404161196997-2ormafv61tcsd7iadveilcd9s8or1n9g.apps.googleusercontent.com',
+        scope: 'https://www.googleapis.com/auth/calendar.readonly \
+                https://www.googleapis.com/auth/contacts.readonly',
+        callback: (tokenResponse) => {
+            access_token = tokenResponse.access_token;
+            localStorage.setItem("access_token", access_token);
+        },
+      });
+//   }
+  function getToken() {
+      client.requestAccessToken();
+    }
+      
+  const signinButton = document.getElementById('login-button');
+  
+  signinButton.addEventListener('click', async () => {
+    client.requestAccessToken()   
+    // Make an HTTP GET request to the userinfo endpoint to retrieve the user's profile information
+  const response = await fetch(`https://www.googleapis.com/oauth2/v2/userinfo?access_token=${access_token}`);
+  const data = await response.json();
 
-// // Add an event listener for form submissions
-// htmlForm.addEventListener("submit", async (event) => {
-//   // Prevent the default form submission behavior
-//   event.preventDefault();
+  // Extract the user's email address and display name from the response data
+  const email = data.email;
+  const name = data.name;
 
-//   // Get the form data as an object
-//   var formData = new FormData(htmlForm);
+  console.log(`Email: ${email}`);
+  console.log(`Name: ${name}`);
+    });
+  console.log(access_token);
 
-//   // Submit the form data to the Google Forms API
-//   const response = await fetch(`https://docs.google.com/forms/u/0/d/e/${formId}/formResponse`, {
-//     method: "POST",
-//     mode: "no-cors",
-//     headers: {
-//       "Content-Type": "multipart/form-data",
-//     },
-//     body: formData,
-//   });
-
-//   // Handle the response (optional)
-//   console.log("Form response submitted:", formData);
-//   console.log(response);
-// });
-
-const loginButton = document.getElementById('login-button');
-
-loginButton.addEventListener('click', () => {
-  // Open a new window or redirect the user to the OAuth provider's login page
-  window.location.href = 'http://127.0.0.1:5500/oauth/authorize?client_id=404161196997-2ormafv61tcsd7iadveilcd9s8or1n9g.apps.googleusercontent.com&redirect_uri=http://127.0.0.1:5500/&response_type=token';
-});
-
-// Handle OAuth redirect
-const handleOAuthRedirect = () => {
-  const { access_token } = parseQueryString(window.location.hash.substring(1));
-
-  // Store access token in local storage
-  localStorage.setItem('access_token', access_token);
-
-  // Redirect to dashboard or protected page
-  window.location.href = '/dashboard';
-};
-
-// Utility function to parse query string
-const parseQueryString = (queryString) => {
-  const params = {};
-  const regex = /([^&=]+)=([^&]*)/g;
-
-  let match;
-
-  while ((match = regex.exec(queryString))) {
-    const key = decodeURIComponent(match[1]);
-    const value = decodeURIComponent(match[2]);
-
-    params[key] = value;
-  }
-
-  return params;
-};
-
-// Call handleOAuthRedirect when the page loads
-if (window.location.hash) {
-  handleOAuthRedirect();
-}
+  if(access_token)
+  {
+    fetch(`https://www.googleapis.com/oauth2/v2/userinfo?access_token=${access_token}`)
+      .then(response => response.json())
+      .then(data => {
+        email = data.email;
+        name1 = data.name;
+    
+        console.log(`Email: ${email}`);
+        console.log(`Name: ${name1}`);
+        document.getElementById('login-button').innerHTML = `Welcome, ${name1}`;
+      })
+      .catch(error => console.error('Error fetching user info', error));
+  };
