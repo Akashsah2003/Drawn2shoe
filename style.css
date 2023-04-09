@@ -54,6 +54,8 @@ body{
 
 .nav-mid a{
     text-decoration: none;
+    display: flex;
+    align-items: center;
 }
 
 .nav-right {
